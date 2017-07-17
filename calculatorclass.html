@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<script>
+	var firstvalue = 0;
+	var secondvalue = 0;
+	var oper = '';
+	function b(u)
+	{
+		if(document.getElementById("on").value==="ON")
+		{
+			document.getElementById("screen").value=" ";
+			
+		}
+		else if(document.getElementById("screen").value==="0")
+		{
+			document.getElementById("screen").value= u;
+		}
+		else 
+		{
+		document.getElementById("screen").value += u;
+		}
+	
+	}
+	function operator(v)
+	{
+		if(document.getElementById("on").value==="ON")
+		{
+			document.getElementById("screen").value +='';	
+		}
+		else
+		{
+			firstvalue = document.getElementById("screen").value;
+			document.getElementById("screen").value="";
+			alert(firstvalue);
+			oper = v;
+		}
+	}
+		
+	function pbtn()
+	{
+		if(document.getElementById("on").value=="ON")
+		{
+			document.getElementById("screen").value ="0";
+			document.getElementById("on").value="OFF";
+			alert("On");	
+			}
+		else
+		{
+			document.getElementById("screen").value="";
+			document.getElementById("on").value="ON";
+		}
+	}
+
+	function calculate() 
+	{
+		secondvalue = document.getElementById("screen").value;
+		if(oper == 'multiply')
+		{
+			document.getElementById("screen").value = firstvalue * secondvalue;
+		}
+		else if(oper == 'add')
+		{
+			document.getElementById("screen").value = parseFloat(firstvalue) + parseFloat(secondvalue);
+		}
+		else if(oper == 'divide')
+		{
+			document.getElementById("screen").value = firstvalue / secondvalue;
+		}
+		else if(oper == 'substract')
+		{
+			document.getElementById("screen").value = firstvalue - secondvalue;
+		}
+	}
+	
+	
+</script>
+<body>
+<fieldset>
+  <legend>Calculator</legend>
+  <table width="200" height="150" border="1" bgcolor="#666666">
+    <tr>
+      <td colspan="4">
+        <label for="textfield"></label>
+      <input type="text" name="textfield" id="screen" /></td>
+    </tr>
+    <tr>
+    	<td colspan="4"><input type="submit" value="ON" onclick="pbtn()" id="on"/></td>
+    	
+    </tr>
+    <tr>
+      <td><input type="button" name="b1" id="b1" value="1" onclick="b('1')" /></td>
+      <td><input type="button" name="b2" id="b2" value="2" onclick="b('2')"/></td>
+      <td><input type="button" name="b3" id="b3" value="3" onclick="b('3')" /></td>
+      <td><input type="button" name="b4" id="b4" value="+" onclick="operator('add')" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="b5" id="b5" value="4" onclick="b('4')" /></td>
+      <td><input type="button" name="b6" id="b6" value="5" onclick="b('5')" /></td>
+      <td><input type="button" name="b7" id="b7" value="6" onclick="b('6')" /></td>
+      <td><input type="button" name="b8" id="b8" value="/" onclick="operator('divide')" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="b9" id="b9" value="7" onclick="b('7')" /></td>
+      <td><input type="button" name="b10" id="b10" value="8" onclick="b('8')" /></td>
+      <td><input type="button" name="b11" id="b11" value="9" onclick="b('9')" o /></td>
+      <td><input type="button" name="b12" id="b12" value="*" onclick="operator('multiply')" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="b13" id="b13" value="." onclick="b('.')" /></td>
+      <td><input type="button" name="b14" id="b14" value="0" onclick="b('0')" /></td>
+      <td><input type="button" name="b15" id="b15" value="=" onclick="calculate()" /></td>
+      <td><input type="button" name="b16" id="b16" value="-" onclick="operator('substract')" /></td>
+    </tr>
+     
+  </table>
+</fieldset>
+
+</body>
+</html>
